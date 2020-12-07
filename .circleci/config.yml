@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1
 jobs:
-  build:
+  job1:
     docker:
       - image: circleci/node:10
 
@@ -10,4 +10,26 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
+
+  job2:
+    docker:
+      - image: circleci/node:10
+
+    steps:
+      - checkout
+      - run: cat README.md
+
+workflows:
+  version: 2
+  one-and-two:
+    jobs:
+      - job1
+      - job2
+
+  two-and-three:
+    jobs:
+      - job1
+      - job2:
+          requires:
+            - job1
 
