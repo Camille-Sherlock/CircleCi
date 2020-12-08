@@ -26,7 +26,7 @@ jobs:
       -image: circleci/node:10
     steps:
       -checkout
-      -run: cat README.md
+      -run: npm test
 
 workflows:
   version: 2
