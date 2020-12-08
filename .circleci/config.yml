@@ -33,10 +33,10 @@ workflows:
 
   nightly:
     triggers:
-      -schedule:
+      - schedule:
         cron: "* * * * *"
     jobs:
-      -cron-test
+      - cron-test
 
   one-and-two:
     jobs:
