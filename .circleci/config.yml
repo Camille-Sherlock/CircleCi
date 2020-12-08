@@ -23,12 +23,13 @@ jobs:
 
   cron-test:
     docker:
-      -image: circleci/node:12.0
+      -image: circleci/node:10
     steps:
       -run: curl http://www.baidu.com
 
 workflows:
   version: 2
+
   nightly:
     triggers:
       -schedule:
