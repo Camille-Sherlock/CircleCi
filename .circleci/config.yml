@@ -1,7 +1,7 @@
-only-pre-branches: &only-pre-branches
-  filters:
-    branches:
-      only: dev
+#only-pre-branches: &only-pre-branches
+#  filters:
+#    branches:
+#      only: dev
 version: 2.1
 jobs:
   job1:
@@ -36,10 +36,11 @@ workflows:
         cron: "* * * * *"
     jobs:
       -cron-test
+
   one-and-two:
     jobs:
-      - job1:
-          <<: *only-pre-branches
+      - job1
+#          <<: *only-pre-branches
       - job2
 
   two-and-three:
