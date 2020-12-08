@@ -32,9 +32,9 @@ workflows:
   version: 2
 
   nightly:
-    triggers:
-      - schedule:
-        cron: "* * * * *"
+#    triggers:
+#      - schedule:
+#        cron: "* * * * *"
     jobs:
       - cron-test
 
