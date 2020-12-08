@@ -21,7 +21,7 @@ jobs:
       - checkout
       - run: cat README.md
 
-  corn-test:
+  cron-test:
     docker:
       -image: circleci/node:12.0
     steps:
@@ -32,9 +32,9 @@ workflows:
   nightly:
     triggers:
       -schedule:
-        corn: "* * * * *"
+        cron: "* * * * *"
     jobs:
-      -corn-test
+      -cron-test
   one-and-two:
     jobs:
       - job1:
