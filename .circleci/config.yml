@@ -1,5 +1,8 @@
+only-pre-branches: &only-pre-branches
+  filters:
+    branches:
+      only: /^pre.*/
 version: 2.1
-
 jobs:
   job1:
     docker:
@@ -22,7 +25,8 @@ workflows:
   version: 2
   one-and-two:
     jobs:
-      - job1
+      - job1:
+          <<: *only-pre-branches
       - job2
 
   two-and-three:
