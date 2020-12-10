@@ -38,9 +38,6 @@ workflows:
   one-and-two:
     jobs:
       - job1
-        filters:
-          branches:
-            only: dev
       - job2
 
   two-and-three:
