@@ -1,7 +1,7 @@
-#only-pre-branches: &only-pre-branches
-#  filters:
-#    branches:
-#      only: dev
+only-pre-branches: &only-pre-branches
+  filters:
+    branches:
+      only: dev
 version: 2.1
 jobs:
   job1:
@@ -31,17 +31,13 @@ jobs:
 workflows:
   version: 2
 
-  nightly:
-    triggers:
-      - schedule:
-        cron: "* * * * *"
     jobs:
       - job3
 
   one-and-two:
     jobs:
       - job1
-#          <<: *only-pre-branches
+          <<: *only-pre-branches
       - job2
 
   two-and-three:
