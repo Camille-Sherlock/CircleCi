@@ -38,19 +38,18 @@ workflows:
           branches:
             only:
               -master
-  one:
     jobs:
       - job3
 
-  one-and-two:
-    jobs:
-      -job1
-      -job2
-
-  two-and-three:
-    jobs:
-      - job1
-      - job2:
-          requires:
-            - job1
+#  one-and-two:
+#    jobs:
+#      -job1
+#      -job2
+#
+#  two-and-three:
+#    jobs:
+#      - job1
+#      - job2:
+#          requires:
+#            - job1
 
