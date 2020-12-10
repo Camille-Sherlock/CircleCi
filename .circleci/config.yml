@@ -2,7 +2,7 @@ only-pre-branches: &only-pre-branches
   filters:
     tags:
       only:
-        -main
+        -dev
 version: 2.1
 jobs:
   job1:
