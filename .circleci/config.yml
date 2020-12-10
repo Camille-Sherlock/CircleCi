@@ -23,16 +23,16 @@ jobs:
 
 workflows:
   version: 2.1
-  one-and-two:
-    jobs:
-      - job1:
-          <<: *only-pre-branches
-      - job2
+   one-and-two:
+     jobs:
+       - job1:
+           <<: *only-pre-branches
+       - job2
 
-  two-and-three:
-    jobs:
-      - job1
-      - job2:
-          requires:
-            - job1
+   two-and-three:
+     jobs:
+       - job1
+       - job2:
+           requires:
+             - job1
 
