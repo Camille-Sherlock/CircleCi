@@ -2,9 +2,7 @@ only-pre-branches: &only-pre-branches
   filters:
     tags:
       only:
-        -v1.1
-        -v1.0
-        -v1.4
+        -main
 version: 2.1
 jobs:
   job1:
@@ -25,7 +23,7 @@ jobs:
       - run: cat README.md
 
 workflows:
-  version: 2
+  version: 2.1
   one-and-two:
     jobs:
       - job1:
