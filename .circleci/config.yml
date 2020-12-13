@@ -42,11 +42,11 @@ workflows:
       - job2
       - myjob
 
-      - build:
-          filters:
-            branches:
-              only:
-                - dev
+#      - build:
+#          filters:
+#            branches:
+#              only:
+#                - dev
 
       - hold:
           type: approval
