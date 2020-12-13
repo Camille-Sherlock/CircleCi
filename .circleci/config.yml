@@ -36,6 +36,7 @@ workflows:
               - job1
               - job2
       - deploy:
+          type: approval
           requires:
               - hold
 
