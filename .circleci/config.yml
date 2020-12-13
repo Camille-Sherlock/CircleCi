@@ -1,4 +1,14 @@
 jobs:
+  myjob:
+    docker:
+      - image: "circleci/node:9.6.1"
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - sayhello:
+          to: "Lev"
+
   job1:
     docker:
       - image: circleci/node:10
@@ -30,6 +40,7 @@ workflows:
     jobs:
       - job1
       - job2
+      - myjob
 
       - build:
           filters:
