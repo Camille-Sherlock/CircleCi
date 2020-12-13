@@ -28,11 +28,14 @@ workflows:
                 - main
                 - dev
     jobs:
-      - job1
-      - job2
+      - hold:
           type: approval
           requires:
-            -job1
+              - job1
+              - job2
+      - deploy:
+          requires:
+              - hold
 
 #  two-and-three:
 #    jobs:
