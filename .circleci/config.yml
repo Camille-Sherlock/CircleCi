@@ -30,6 +30,12 @@ workflows:
     jobs:
       - job1
       - job2
+      - build:
+          filters:
+            branches:
+              ignore:
+                - dev
+
       - hold:
           type: approval
           requires:
@@ -40,10 +46,7 @@ workflows:
           type: approval
           requires:
               - hold
+          filters:
+            branches:
+              only: dev
 
-  two-and-three:
-    jobs:
-      - job1
-      - job2:
-          requires:
-            - job1
