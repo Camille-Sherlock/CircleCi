@@ -25,16 +25,20 @@ workflows:
           filters:
             branches:
               only:
-                - main
-                - dev
-  one-and-two:
+                - master
+                - beta
     jobs:
       - job1
       - job2
 
-  two-and-three:
-    jobs:
-      - job1
-      - job2:
-          requires:
-            - job1
+#  one-and-two:
+#    jobs:
+#      - job1
+#      - job2
+#
+#  two-and-three:
+#    jobs:
+#      - job1
+#      - job2:
+#          requires:
+#            - job1
