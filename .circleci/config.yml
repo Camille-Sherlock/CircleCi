@@ -33,7 +33,7 @@ workflows:
       - build:
           filters:
             branches:
-              ignore:
+              only:
                 - dev
 
       - hold:
@@ -48,5 +48,5 @@ workflows:
               - hold
           filters:
             branches:
-              only: dev
+              ignore: dev
 
