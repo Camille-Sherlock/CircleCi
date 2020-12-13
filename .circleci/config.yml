@@ -41,9 +41,9 @@ workflows:
           requires:
               - hold
 
-#  two-and-three:
-#    jobs:
-#      - job1
-#      - job2:
-#          requires:
-#            - job1
+  two-and-three:
+    jobs:
+      - job1
+      - job2:
+          requires:
+            - job1
