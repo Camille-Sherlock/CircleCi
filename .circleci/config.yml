@@ -1,8 +1,3 @@
-only-pre-branches: &only-pre-branches
-  filters:
-    only:
-      -dev
-version: 2.1
 jobs:
   job1:
     docker:
@@ -22,17 +17,15 @@ jobs:
       - run: cat README.md
 
 workflows:
-  version: 2.1
-   one-and-two:
-     jobs:
-       - job1:
-           <<: *only-pre-branches
-       - job2
+  version: 2
+  one-and-two:
+    jobs:
+      - job1
+      - job2
 
-   two-and-three:
-     jobs:
-       - job1
-       - job2:
-           requires:
-             - job1
-
+  two-and-three:
+    jobs:
+      - job1
+      - job2:
+          requires:
+            - job1
