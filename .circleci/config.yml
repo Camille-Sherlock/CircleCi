@@ -18,14 +18,14 @@ jobs:
 
 workflows:
   version: 2
-  nightly:
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - jobs
+#  nightly:
+#    triggers:
+#      - schedule:
+#          cron: "* * * * *"
+#          filters:
+#            branches:
+#              only:
+#                - jobs
     jobs:
       - build
 
