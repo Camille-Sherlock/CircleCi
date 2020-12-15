@@ -8,7 +8,7 @@ jobs:
         command: [mongod, --smallfiles]
 
       - image: postgres:9.4.1
-        # some containers require setting environment variables
+
         environment:
           POSTGRES_USER: root
 
@@ -32,8 +32,6 @@ jobs:
       - run:
           command: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
 
-      # Create Postgres users and database
-      # Note the YAML heredoc '|' for nicer formatting
       - run: |
           sudo -u root createuser -h localhost --superuser ubuntu &&
           sudo createdb -h localhost test_db
