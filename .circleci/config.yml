@@ -18,15 +18,15 @@ jobs:
 
 workflows:
   version: 2
-#  nightly:
-#    triggers:
-#      - schedule:
-#          cron: "* * * * *"
-#          filters:
-#            branches:
-#              only:
-#                - main
-#                - dev
+  nightly:
+    triggers:
+      - schedule:
+          cron: "* * * * *"
+          filters:
+            branches:
+              only:
+                - main
+                - dev
     jobs:
       - job1
       - job2
