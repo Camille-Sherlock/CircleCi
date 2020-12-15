@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 
 jobs:
   build:
@@ -34,9 +34,22 @@ jobs:
           when: on_fail
 
 workflows:
-  build:
+  version: 2
+  build-deploy:
     jobs:
       - build
+#      - deploy-stage:
+#          requires:
+#            - build
+#          filters:
+#            branches:
+#              only: staging
+#      - deploy-prod:
+#          requires:
+#            - build
+#          filters:
+#            branches:
+#              only: master
 
 
 
