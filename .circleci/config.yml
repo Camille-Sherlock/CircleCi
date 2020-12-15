@@ -32,7 +32,7 @@ jobs:
           when: on_fail
 
 workflows:
-  version: 2
+ # version: 2
 #  nightly:
 #    triggers:
 #      - schedule:
