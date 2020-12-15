@@ -1,3 +1,5 @@
+version: 2.1
+
 jobs:
   build:
     docker:
@@ -32,8 +34,15 @@ jobs:
           when: on_fail
 
 workflows:
-  version: 2
+  build:
     jobs:
       - build
+          pre-steps: # steps to run before steps defined in the job bar
+            - run:
+                command: echo "install custom dependency"
+          post-steps: # steps to run after steps defined in the job bar
+            - run:
+                command: echo "upload artifact to s3"
+
 
 
