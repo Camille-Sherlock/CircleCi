@@ -1,56 +1,31 @@
-version: 2
-
 jobs:
-  build:
+  job1:
     docker:
-      - image: buildpack-deps:trusty
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    environment:
-      FOO: bar
-    parallelism: 1
-    resource_class: large
-    working_directory: ~/my-app
+      - image: circleci/node:10
+
     steps:
-      - run:
-          name: Testing application
-          command: make test
-          shell: /bin/bash
-          working_directory: ~/my-app
-          no_output_timeout: 30m
-          environment:
-            FOO: bar
+      - checkout
+      - run: npm install
+      - run: npm test
 
-      - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
+  job2:
+    docker:
+      - image: circleci/node:10
 
-      - run: |
-          sudo -u root createuser -h localhost --superuser ubuntu &&
-          sudo createdb -h localhost test_db
-
-      - run:
-          name: Upload Failed Tests
-          command: curl --data fail_tests.log http://example.com/error_logs
-          when: on_fail
+    steps:
+      - checkout
+      - run: cat README.md
 
 workflows:
   version: 2
-  build-deploy:
+  one-and-two:
     jobs:
-      - build
-#      - deploy-stage:
-#          requires:
-#            - build
-#          filters:
-#            branches:
-#              only: staging
-#      - deploy-prod:
-#          requires:
-#            - build
-#          filters:
-#            branches:
-#              only: master
+      - job1
+      - job2
 
-
-
-
+  two-and-three:
+    jobs:
+      - job1
+      - job2:
+          requires:
+            - job1
