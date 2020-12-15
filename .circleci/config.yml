@@ -30,23 +30,23 @@ workflows:
       - build
 
 
-      - build:
-          filters:
-            branches:
-              only:
-                - dev
+#      - build:
+#          filters:
+#            branches:
+#              only:
+#                - dev
+#
+#      - hold:
+#          type: approval
+#          requires:
+#              - job1
+#              - job2
 
-      - hold:
-          type: approval
-          requires:
-              - job1
-              - job2
-
-      - deploy:
-          type: approval
-          requires:
-              - hold
-          filters:
-            branches:
-              ignore: dev
+#      - deploy:
+#          type: approval
+#          requires:
+#              - hold
+#          filters:
+#            branches:
+#              ignore: dev
 
