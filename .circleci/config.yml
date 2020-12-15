@@ -36,14 +36,6 @@ jobs:
       - restore_cache:
           key: v1-myapp-cache
 
-  deploy-prod:
-    docker:
-      - image: ubuntu:14.04
-    working_directory: /tmp/my-project
-    steps:
-      - run:
-          name: Deploy if tests pass and branch is Master
-          command: echo "Hi"
 
 workflows:
   version: 2
@@ -54,7 +46,5 @@ workflows:
           requires:
             - build
 
-      - deploy-prod:
-          requires:
-            - build
+
 
