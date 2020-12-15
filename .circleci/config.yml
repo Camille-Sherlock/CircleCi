@@ -99,12 +99,8 @@ workflows:
       - deploy-stage:
           requires:
             - build
-          filters:
-            branches:
-              only: steps
+
       - deploy-prod:
           requires:
             - build
-          filters:
-            branches:
-              only: steps
+
