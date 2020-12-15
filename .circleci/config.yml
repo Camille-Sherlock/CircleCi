@@ -16,15 +16,6 @@ jobs:
 
       - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
 
-      - run: |
-          sudo -u root createuser -h localhost --superuser ubuntu &&
-          sudo createdb -h localhost test_db
-
-      - run:
-          name: Upload Failed Tests
-          command: curl --data fail_tests.log http://example.com/error_logs
-          when: on_fail
-
   deploy-stage:
     docker:
       - image: ubuntu:14.04
