@@ -31,12 +31,6 @@ workflows:
       - job1
       - job2
 
-      - build:
-          filters:
-            branches:
-              only:
-                - dev
-
       - hold:
           type: approval
           requires:
