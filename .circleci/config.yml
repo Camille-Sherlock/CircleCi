@@ -5,7 +5,7 @@ jobs:
       - image: ubuntu:14.04
 
       - image: mongo:2.6.8
-        command: [mongod, --smallfiles]
+        command: echo "Hi"
 
       - image: postgres:9.4.1
 
@@ -25,11 +25,7 @@ jobs:
       - checkout
 
       - run:
-          command: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
-
-      - run: |
-          sudo -u root createuser -h localhost --superuser ubuntu &&
-          sudo createdb -h localhost test_db
+          command: echo "Hi"
 
       - restore_cache:
           keys:
@@ -73,7 +69,7 @@ jobs:
     steps:
       - run:
           name: Deploy if tests pass and branch is Staging
-          command: ansible-playbook site.yml -i staging
+          command: echo "Hi"
 
   deploy-prod:
     docker:
@@ -82,7 +78,7 @@ jobs:
     steps:
       - run:
           name: Deploy if tests pass and branch is Master
-          command: ansible-playbook site.yml -i production
+          command: echo "Hi"
 
 workflows:
   version: 2
