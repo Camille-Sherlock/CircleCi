@@ -25,11 +25,6 @@ workflows:
 
   two-and-three:
     jobs:
-      - job1:
-          pre-steps:
-            - run:
-                command: echo "install custom dependency"
-          post-steps:
-            - run:
-                command: echo "upload artifact to s3"
+      - job1
+
 
